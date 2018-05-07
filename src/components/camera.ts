@@ -1,5 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ModalController, Platform } from 'ionic-angular';
 import { ModalChooseComponent } from './modal-choose';
 import { ModalCameraWebComponent } from './modal-camera-web';
@@ -15,12 +14,21 @@ import { ModalCameraWebComponent } from './modal-camera-web';
   selector: 'camera',
   providers: [ModalCameraWebComponent],
   template: `
-  <img src="assets/images/logos/icon.png" alt="" (click)="presentCadastroModal($event)" *ngIf="imagemUrl == 'foto'">
+  <img src="assets/images/logos/icon.png" alt="" (click)="presentCadastroModal($event)" *ngIf="icon == 'foto'">
+
+  <button ion-button color="padrao" outline clear  class="up-legenda" *ngIf="icon == 'upload' " style="color:#747474 !important; " (click)="presentCadastroModal($event)">
+    <ion-icon name='attach'></ion-icon>
+    Adicionar Autorização
+  </button>
+
+  <button ion-button color='padrao' small *ngIf="icon == 'botaoUpload' "  (click)="presentCadastroModal($event)" >
+    <ion-icon name="camera"></ion-icon> &nbsp; &nbsp;  upload
+  </button>
 `
 })
 export class CameraComponent {
 
-  @Input() imagemUrl: string;
+  @Input() icon: string;
   @Input() typeButton: string;
   @Output() imageUploaded = new EventEmitter();
 
