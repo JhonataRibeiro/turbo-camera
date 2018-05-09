@@ -9,6 +9,7 @@
     "clean": "rm -rf ./aot/* && rm -rf ./dist/* && npm run clean:postbuild",
     "clean:postbuild": "find ./src/ -type f -iname *.ngsummary.json -delete && find ./src/ -type f -iname *.ngfactory.ts -delete",
     "build": "npm run clean && ngc -p tsconfig.json && npm run clean:postbuild",
+    "rebuild": "rm -rf node_modules && rm -rf package-lock.json && npm i && npm run build",
     "publishPackage": "npm run build && npm publish"
   },
   "license": "MIT",
@@ -28,11 +29,18 @@
     "camera",
     "turbo"
   ],
-  "dependencies": {
-    "@angular/core": "5.0.3",
-    "@ionic-native/camera": "^3.14.0",
-    "ionic-angular": "3.9.2"
-  },
   "devDependencies": {
+    "@angular/compiler": "5.0.3",
+    "@angular/compiler-cli": "5.0.3",
+    "@angular/core": "5.0.3",
+    "@angular/forms": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/common": "5.0.3",
+    "@ionic-native/camera": "^3.14.0",
+    "@ionic-native/core": "4.4.0",
+    "ionic-angular": "3.9.2",
+    "rxjs": "5.5.2",
+    "typescript": "2.4.2",
+    "zone.js": "0.8.5"
   }
 }

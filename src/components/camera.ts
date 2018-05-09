@@ -14,7 +14,7 @@ import { ModalCameraWebComponent } from './modal-camera-web';
   selector: 'camera',
   providers: [ModalCameraWebComponent],
   template: `
-  <img src="assets/images/logos/icon.png" alt="" (click)="presentCadastroModal($event)" *ngIf="icon == 'foto'">
+  <img src="assets/icon.png" alt="" (click)="presentCadastroModal($event)" *ngIf="icon == 'foto'">
 
   <button ion-button color="padrao" outline clear  class="up-legenda" *ngIf="icon == 'upload' " style="color:#747474 !important; " (click)="presentCadastroModal($event)">
     <ion-icon name='attach'></ion-icon>
